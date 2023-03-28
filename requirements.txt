@@ -1,0 +1,8 @@
+flask
+flask-login
+gunicorn==20.0.4
+pytube
+io
+os
+Jinja
+
