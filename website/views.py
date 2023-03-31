@@ -34,15 +34,13 @@ def result():
     if request.method=='POST':
            vid = YouTube(session['url_vid'])
            stream=vid.streams.filter(only_audio=True).first()
-           buffer=BytesIO()
-           stream.stream_to_buffer(buffer)
-           buffer.seek(0)
-           return send_file(buffer , as_attachment=True,download_name='music.mp3',mimetype='audio/mp3')
-
-
-
-           
+           title=vid.title
+           title=str(title)
+           return send_file(stream, as_attachment=True,download_name=f'{title}.mp3',mimetype='audio/mp3') 
     return render_template('download.html')
+
+
+
 
 
 
