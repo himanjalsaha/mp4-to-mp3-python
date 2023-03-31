@@ -34,7 +34,7 @@ def result():
     if request.method=='POST':
            vid = YouTube(session['url_vid'])
            stream=vid.streams.filter(only_audio=True).first()
-            buffer=BytesIO()
+           buffer=BytesIO()
            stream.stream_to_buffer(buffer)
            buffer.seek(0)
            title=vid.title
